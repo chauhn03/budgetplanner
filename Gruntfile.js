@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 
   'use strict';
 
-  grunt.initConfig({
+  grunt.initConfig({      
     watch: {
       // If any .less file changes in directory "build/less/" run the "less"-task.
       files: ["build/less/*.less", "build/less/skins/*.less", "dist/js/app.js"],
