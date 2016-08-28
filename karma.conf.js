@@ -19,6 +19,7 @@ module.exports = function(config) {
       'plugins/angularjs/angular-route.js',
       'plugins/angularjs/angular-mocks.js',
       'app/app.js',
+      'app/**/*.js',
       'app/**/*-test.js'
     ],
 
