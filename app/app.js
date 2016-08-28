@@ -5,8 +5,8 @@
  */
 var app = angular.module("app", ['ngRoute'])
 .config(function($routeProvider, $locationProvider) {
-    $routeProvider.when('/Registrations/Courses', { templateUrl: '/template/courses.html', controller: 'CoursesController' });
-    $routeProvider.when('/Registrations/Instructors', { templateUrl: '/template/instructors.html', controller: 'InstructorsController' });
+    $routeProvider.when('/budgetplanner/dashboard', { templateUrl: 'app/dashboard/dashboard-view.html', controller: 'DashBoardController' });
+    $routeProvider.when('/budgetplanner/expense-list', { templateUrl: 'app/expense-list/expense-list-view.html', controller: 'ExpenseListController' });
     $routeProvider.when('/Registrations/CreateAccount', { templateUrl: '/template/create-account.html', controller: 'AccountController' });
     $locationProvider.html5Mode(true);
 });
