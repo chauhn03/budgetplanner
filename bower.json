@@ -1,33 +1,23 @@
 {
-  "name": "AdminLTE",
-  "homepage": "http://almsaeedstudio.com",
-  "authors": [
-    "Abdullah Almsaeed <abdullah@almsaeedstudio.com>"
-  ],
-  "description": "Admin dashboard and control panel template",
-  "main": [
-    "index2.html",
-    "dist/css/AdminLTE.css",
-    "dist/js/app.js",
-    "build/less/AdminLTE.less"
-  ],
-  "keywords": [
-    "css",
-    "js",
-    "html",
-    "template",
-    "admin",
-    "bootstrap",
-    "theme",
-    "backend",
-    "responsive"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "/.*",
-    "node_modules",
-    "bower_components",
-    "composer.json",
-    "documentation"
-  ]
+  "name": "budgetplanner",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.4.0",
+    "bootstrap": "^3.2.0",
+    "angular-route": "^1.4.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.0"
+  },
+  "appPath": "app",
+  "moduleName": "budgetplannerApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
 }
