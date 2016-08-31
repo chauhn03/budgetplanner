@@ -46,5 +46,15 @@ var app = angular.module('budgetplannerApp', ['ui.router'])
                         templateUrl: 'views/reports-view.html',
                         controller: 'ReportsController',
                         controllerAs: 'reports'
-                    });            
+                    })
+                    .state('/dashboard', {
+                        templateUrl: 'views/dashboard-view.html',
+                        controller: 'MainCtrl',
+                        controllerAs: 'main'
+                    })
+                    .state('/expense-list', {
+                        templateUrl: 'views/about.html',
+                        controller: 'AboutCtrl',
+                        controllerAs: 'about'
+                    });
         });
