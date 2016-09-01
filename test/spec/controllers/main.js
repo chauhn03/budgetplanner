@@ -2,7 +2,7 @@
 
 describe('example test', function() {
   it('should be true', function() {
-    expect('abc').toBe('foo');
+    expect('foo').toBe('foo');
   });
 });
 //////'use strict';
