@@ -41,5 +41,7 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {}
+  "scripts": {
+          "test": "karma start test\\karma.conf.js"
+  }
 }
