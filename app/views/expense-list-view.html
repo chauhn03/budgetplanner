@@ -1,1 +1,119 @@
-<h1>{{text}}</h1>
+<div class="box box-default">
+    <!--    <div class="box-header with-border">
+            <h3 class="box-title">Select2</h3>
+    
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+            </div>
+        </div>-->
+    <!-- /.box-header -->
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="box-header">
+                        <h3 class="box-title">Loại Thu Nhập</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="inputIncome" class="col-sm-3 control-label">Loại thu nhập</label>
+
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" id="inputIncome" placeholder="Loại thu nhập">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button type="button" 
+                                            id="btnAddIncome"
+                                            class="btn btn-info pull-right">Thêm</button>
+                                </div>
+                            </div>
+                        </div>                                   
+                    </form>
+                </div>
+
+                <hr/>
+                <div class="row">
+                    <div class="box-header">
+                        <h3 class="box-title"><b>Loại Chi Tiêu</b></h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="inputExpenseName" class="col-sm-3 control-label">Loại chi tiêu</label>
+
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" id="inputExpenseName" placeholder="Loại chi tiêu">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputExpenseType" class="col-sm-3 control-label">Nhóm</label>
+
+                                <div class="col-sm-9">
+                                    <select class="form-control select2 select2-hidden-accessible" id="inputExpenseType" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                        <option selected="selected">Khác</option>
+                                        <option>Chi phí đi lại</option>
+                                        <option>Nhà cửa</option>
+                                        <option>Tiện ích</option>
+                                        <option>Sức khỏe</option>
+                                        <option>Giải trí</option>
+                                        <option>Linh tinh</option>
+                                    </select>                             
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button type="submit" class="btn btn-info pull-right">Thêm</button>
+                                </div>
+                            </div>
+                        </div>                                   
+                    </form>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-md-5 col-md-offset-1">    
+                <div class="row">
+                    <div class="span3">                        
+                        <div id="income-expense-tree">
+                            <ul class="nav nav-list">
+                                <li><label class="tree-toggle nav-header">Thu nhập</label>
+                                    <ul class="nav nav-list tree">
+                                        <li><a href="#">Lương</a></li>
+                                        <li><a href="#">Phụ cấp</a></li>
+                                        <li><label class="tree-toggle nav-header">Buttons</label>
+                                            <ul class="nav nav-list tree">
+                                                <li><a href="#">Colors</a></li>
+                                                <li><a href="#">Sizes</a></li>
+                                                <li><label class="tree-toggle nav-header">Forms</label>
+                                                    <ul class="nav nav-list tree">
+                                                        <li><a href="#">Horizontal</a></li>
+                                                        <li><a href="#">Vertical</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="divider"></li>                                
+                            </ul>
+                        </div>                        
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+
+        </div>
+    </div>
+</div>
