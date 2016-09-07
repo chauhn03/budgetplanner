@@ -38,7 +38,7 @@ app.controller('ExpenseListController', function ($scope, $timeout) {
 
             $timeout(function () {
                 var empenseGroup = _.find($scope.expenseGroups, {"Id": id});
-                empenseGroup.expand = !empenseGroup.expand;
+                empenseGroup.Expand = !empenseGroup.Expand;
                 console.log(empenseGroup);
             });
         });
