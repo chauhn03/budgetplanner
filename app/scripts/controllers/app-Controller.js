@@ -1,3 +1,5 @@
+'use strict';
+
 app.controller('app-Controller', function ($scope) {
 //    $scope.collapeSideBar = function () {
 //        if ($("body.sidebar-collapse")[0])
