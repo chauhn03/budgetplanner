@@ -1,16 +1,60 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="box box-default">    
+    <div class="box-header with-border">
+        <h3 class="box-title">Loại Thu Nhập</h3>
+
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <!--<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>-->
+        </div>
+    </div>
+    <div class="box-body">                    
+        <div class="row">
+            <!--form start--> 
+            <form class="form-horizontal">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="inputIncome" class="col-sm-3 control-label">Loại thu nhập</label>
+
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="inputIncome" placeholder="Loại thu nhập">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="button" 
+                                    id="btnAddIncome"
+                                    class="btn btn-info pull-right">Thêm</button>
+                        </div>
+                    </div>
+                </div>                                   
+            </form>
+        </div>
+
+        <hr/>
+
+        <div class="row">                
+            <div class="box-body">
+                <form class="form-horizontal">
+                    <div class="span3">                        
+                        <div id="income-expense-tree">
+                            <ul class="nav nav-list">
+                                <li><label class="tree-toggle nav-header">Thu nhập</label>
+                                    <ul class="nav nav-list tree" ng-repeat="income in incomes">
+                                        <li><a href="#">{{income.Name}}</a></li>                                                                               
+                                    </ul>
+                                </li>
+                                <li class="divider"></li>                                
+                            </ul>
+                        </div>                        
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--box-body--> 
+        <div class="box-footer">
+
+        </div>
+    </div>
+</div>
+<!-- /.col -->

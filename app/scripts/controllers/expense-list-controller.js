@@ -2,6 +2,7 @@
 
 app.controller('ExpenseListController', function ($scope, $timeout) {
     $scope.text = "Expense List";
+    $scope.selectExpense;
     $scope.vm = this;
     $scope.incomes = [
         {Id: 1, Name: "Lương"},
@@ -23,7 +24,7 @@ app.controller('ExpenseListController', function ($scope, $timeout) {
             Expand: true,
             Expense: [{
                     Id: 4,
-                    Name: "Xang"
+                    Name: "Sửa chữa"
                 }]}
     ];
 
@@ -44,5 +45,8 @@ app.controller('ExpenseListController', function ($scope, $timeout) {
         });
     });
 
-
+    $scope.onSelectExpenseClick = function (expense) {
+        $scope.selectExpense= expense;
+//        alert(expense.Name);
+    }
 });

@@ -1,0 +1,83 @@
+<div class="box box-default">
+    <div class="box-header with-border">
+        <h3 class="box-title">Loại Chi Tiêu</h3>
+
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <!--<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>-->
+        </div>
+    </div>
+    <div class="box-body">        
+        <div class="row">
+            <!-- form start -->
+            <form class="form-horizontal">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="inputExpenseName" class="col-sm-3 control-label">Loại chi tiêu</label>
+
+                        <div class="col-sm-9">
+                            <input class="form-control" 
+                                   ng-model="selectExpense.Name"
+                                   id="inputExpenseName" placeholder="Loại chi tiêu">
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label for="inputExpenseType" class="col-sm-3 control-label">Nhóm</label>
+
+                        <div class="col-sm-9">
+                            <select class="form-control select2 select2-hidden-accessible" 
+                                    id="inputExpenseType" style="width: 100%;" 
+                                    tabindex="-1" aria-hidden="true">
+                                <option selected="selected">Khác</option>
+                                <option>Chi phí đi lại</option>
+                                <option>Nhà cửa</option>
+                                <option>Tiện ích</option>
+                                <option>Sức khỏe</option>
+                                <option>Giải trí</option>
+                                <option>Linh tinh</option>
+                            </select>                             
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" class="btn btn-info pull-right">Thêm</button>
+                        </div>
+                    </div>
+                </div>                                   
+            </form>
+        </div>
+
+        <hr/>
+        <div class="row">
+            <div class="span3">                        
+                <div id="income-expense-tree" >
+                    <!--style="max-height: 350px; overflow: hidden;overflow: scroll; overflow-x:hidden">-->
+                    <ul class="nav nav-list">
+                        <li><label class="tree-toggle nav-header">Chi tiêu</label>
+                            <ul class="nav nav-list tree" 
+                                ng-repeat="expenseGroup in expenseGroups">
+                                <li>                                                                                        
+                                    <label class="tree-toggle nav-header" 
+                                           style="cursor: pointer"
+                                           id="{{expenseGroup.Id}}">
+                                        <span ng-show="!expenseGroup.Expand">+</span>
+                                        <span ng-show="expenseGroup.Expand">-</span>
+                                        {{expenseGroup.Group}}
+                                    </label>
+                                    <ul class="nav nav-list tree" 
+                                        style="cursor: pointer"                                     
+                                        ng-model="expenseGroup" 
+                                        ng-repeat="expense in expenseGroup.Expense">
+                                        <li><a href="#">{{expense.Name}}</a></li>
+                                    </ul>
+                                </li>                                       
+                            </ul>
+                        </li>
+                        <li class="divider"></li>                                
+                    </ul>
+                </div>                        
+            </div>
+        </div>                
+    </div>
+</div>
+<!-- /.col -->
