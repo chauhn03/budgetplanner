@@ -4,11 +4,13 @@ app.controller('ExpenseListController', function ($scope, $timeout) {
     $scope.text = "Expense List";
     $scope.selectExpense;
     $scope.vm = this;
+    $scope.editMode = false;
     $scope.incomes = [
         {Id: 1, Name: "Lương"},
         {Id: 2, Name: "Phụ cấp"},
         {Id: 3, Name: "Thưởng"}
     ];
+
     $scope.expenseGroups = [
         {
             Id: 1,
@@ -16,7 +18,8 @@ app.controller('ExpenseListController', function ($scope, $timeout) {
             Expand: true,
             Expense: [{
                     Id: 1,
-                    Name: "Xang"
+                    Name: "Xang",
+                    GroupId: 1
                 }]},
         {
             Id: 2,
@@ -24,29 +27,41 @@ app.controller('ExpenseListController', function ($scope, $timeout) {
             Expand: true,
             Expense: [{
                     Id: 4,
-                    Name: "Sửa chữa"
+                    Name: "Sửa chữa",
+                    GroupId: 2
                 }]}
     ];
 
+    $scope.groupId = "1";
     $timeout(function () {
-        $('.tree-toggle').click(function () {
+        var treeToggle = $('.tree-toggle');
+        treeToggle.click(function () {
             var ulTree = $(this).parent().children('ul.tree');
             var label = $(this)[0];
             ulTree.toggle(500);
-            var value = ulTree.val();
             var id = label.id ? parseInt(label.id) : null;
-
-
-            $timeout(function () {
-                var empenseGroup = _.find($scope.expenseGroups, {"Id": id});
-                empenseGroup.Expand = !empenseGroup.Expand;
-                console.log(empenseGroup);
-            });
+            expandGroupTreeView(id);
         });
-    });
+    }, 500);
+
+    $scope.onCancelClick = function() {
+        $scope.editMode = false;
+    }
+
+    function expandGroupTreeView(expenseGroupId) {
+        $timeout(function () {
+            var empenseGroup = _.find($scope.expenseGroups, {"Id": expenseGroupId});
+            if (!empenseGroup)
+                return;
+
+            empenseGroup.Expand = !empenseGroup.Expand;
+            console.log(empenseGroup);
+        });
+    }
 
     $scope.onSelectExpenseClick = function (expense) {
-        $scope.selectExpense= expense;
-//        alert(expense.Name);
-    }
+        $scope.selectExpense = expense;
+        $scope.groupId = expense.GroupId.toString();
+        $scope.editMode = true;
+    };
 });
