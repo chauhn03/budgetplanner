@@ -1,10 +1,11 @@
 'use strict';
-
 app.controller('ExpenseListController', function ($scope, $timeout) {
     $scope.text = "Expense List";
-    $scope.selectExpense;
+    $scope.selectedExpense = null;
+    $scope.selectedIncome = null;
     $scope.vm = this;
-    $scope.editMode = false;
+    $scope.expenseEditMode = false;
+    $scope.incomeEditMode = false;
     $scope.incomes = [
         {Id: 1, Name: "Lương"},
         {Id: 2, Name: "Phụ cấp"},
@@ -34,25 +35,46 @@ app.controller('ExpenseListController', function ($scope, $timeout) {
 
     $scope.groupId = "1";
     $timeout(function () {
-        var treeToggle = $('.tree-toggle');
+        listenExpenseGroupNodeClickEvent();
+        listenIncomeNodeClickEvent();
+    }, 500);
+
+    $scope.onExpenseCancelClick = function () {
+        $scope.expenseEditMode = false;
+    };
+
+    $scope.onIncomeCancelClick = function () {
+        $scope.incomeEditMode = false;
+    };
+
+    function listenExpenseGroupNodeClickEvent() {
+        var treeToggle = $('#expense-tree .tree-toggle');
         treeToggle.click(function () {
             var ulTree = $(this).parent().children('ul.tree');
             var label = $(this)[0];
             ulTree.toggle(500);
             var id = label.id ? parseInt(label.id) : null;
-            expandGroupTreeView(id);
+            expandExpenseGroupTreeView(id);
         });
-    }, 500);
-
-    $scope.onCancelClick = function() {
-        $scope.editMode = false;
     }
 
-    function expandGroupTreeView(expenseGroupId) {
+    function listenIncomeNodeClickEvent() {
+        var treeToggle = $('#income-tree .tree-toggle');
+        treeToggle.click(function () {
+            var ulTree = $(this).parent().children('ul.tree');
+            var label = $(this)[0];
+            ulTree.toggle(500);
+            var id = label.id ? parseInt(label.id) : null;
+            expandExpenseGroupTreeView(id);
+        });
+    }
+
+    function expandExpenseGroupTreeView(expenseGroupId) {
         $timeout(function () {
             var empenseGroup = _.find($scope.expenseGroups, {"Id": expenseGroupId});
-            if (!empenseGroup)
+            if (!empenseGroup) {
                 return;
+            }
 
             empenseGroup.Expand = !empenseGroup.Expand;
             console.log(empenseGroup);
@@ -60,8 +82,13 @@ app.controller('ExpenseListController', function ($scope, $timeout) {
     }
 
     $scope.onSelectExpenseClick = function (expense) {
-        $scope.selectExpense = expense;
+        $scope.selectedExpense = expense;
         $scope.groupId = expense.GroupId.toString();
-        $scope.editMode = true;
+        $scope.expenseEditMode = true;
+    };
+
+    $scope.onSelectIncomeClick = function (income) {
+        $scope.selectedIncome = income;
+        $scope.incomeEditMode = true;
     };
 });

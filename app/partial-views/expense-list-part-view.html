@@ -17,7 +17,7 @@
 
                     <div class="col-sm-9">
                         <input class="form-control" 
-                               ng-model="selectExpense.Name"
+                               ng-model="selectedExpense.Name"
                                id="inputExpenseName" placeholder="Loại chi tiêu">
                     </div>
                 </div>
@@ -37,19 +37,20 @@
             </div>                  
 
             <div class="box-footer">
-                <button ng-show="!editMode"  type="submit"                    
+                <button ng-show="!expenseEditMode"  type="submit"                    
                         class="btn btn-info pull-right">Thêm</button>
-                <button ng-show="editMode" type="submit" 
-                        ng-click="onCancelClick()"
+                <button ng-show="expenseEditMode" type="submit" 
+                        ng-click="onExpenseCancelClick()"
                         class="btn btn-default">Thoát</button>                        
-                <button ng-show="editMode" type="submit" style="margin-left: 10px" class="btn btn-info pull-right">Cập nhật</button>            
-                <button ng-show="editMode" type="submit" class="btn btn-info pull-right">Xóa</button>
+                <button ng-show="expenseEditMode" type="submit" style="margin-left: 10px" class="btn btn-info pull-right">Cập nhật</button>            
+                <button ng-show="expenseEditMode" type="submit" class="btn btn-info pull-right">Xóa</button>
             </div>
         </form>
 
         <hr/>
+        
         <!-- tree view-->                       
-        <div id="income-expense-tree" >
+        <div id="expense-tree" >
             <!--style="max-height: 350px; overflow: hidden;overflow: scroll; overflow-x:hidden">-->
             <ul class="nav nav-list">
                 <li><label class="tree-toggle nav-header">Chi tiêu</label>

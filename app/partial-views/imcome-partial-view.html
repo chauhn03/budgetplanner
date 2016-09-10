@@ -8,52 +8,48 @@
         </div>
     </div>
     <div class="box-body">                    
-        <div class="row">
-            <!--form start--> 
-            <form class="form-horizontal">
-                <div class="box-body">
-                    <div class="form-group">
-                        <label for="inputIncome" class="col-sm-3 control-label">Loại thu nhập</label>
+        <!--form start--> 
+        <form class="form-horizontal">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="inputIncome" class="col-sm-3 control-label">Loại thu nhập</label>
 
-                        <div class="col-sm-9">
-                            <input type="email" class="form-control" id="inputIncome" placeholder="Loại thu nhập">
-                        </div>
+                    <div class="col-sm-9">
+                        <input class="form-control" 
+                               ng-model="selectedIncome.Name"
+                               id="inputIncome" placeholder="Loại thu nhập">
                     </div>
+                </div>
+            </div>  
 
-                    <div class="form-group">
-                        <div class="col-sm-offset-3 col-sm-9">
-                            <button type="button" 
-                                    id="btnAddIncome"
-                                    class="btn btn-info pull-right">Thêm</button>
-                        </div>
-                    </div>
-                </div>                                   
-            </form>
-        </div>
+            <div class="box-footer">
+                <button ng-show="!incomeEditMode"  type="submit"                    
+                        class="btn btn-info pull-right">Thêm</button>
+                <button ng-show="incomeEditMode" type="submit" 
+                        ng-click="onIncomeCancelClick()"
+                        class="btn btn-default">Thoát</button>                        
+                <button ng-show="incomeEditMode" type="submit" style="margin-left: 10px" class="btn btn-info pull-right">Cập nhật</button>            
+                <button ng-show="incomeEditMode" type="submit" class="btn btn-info pull-right">Xóa</button>
+            </div>
+        </form>
 
         <hr/>
 
-        <div class="row">                
-            <div class="box-body">
-                <form class="form-horizontal">
-                    <div class="span3">                        
-                        <div id="income-expense-tree">
-                            <ul class="nav nav-list">
-                                <li><label class="tree-toggle nav-header">Thu nhập</label>
-                                    <ul class="nav nav-list tree" ng-repeat="income in incomes">
-                                        <li><a href="#">{{income.Name}}</a></li>                                                                               
-                                    </ul>
-                                </li>
-                                <li class="divider"></li>                                
-                            </ul>
-                        </div>                        
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!--box-body--> 
-        <div class="box-footer">
-
+        <div class="box-body">
+            <form class="form-horizontal">
+                <div class="span3">                        
+                    <div id="income-tree">
+                        <ul class="nav nav-list">
+                            <li><label class="tree-toggle nav-header">Thu nhập</label>
+                                <ul class="nav nav-list tree" ng-repeat="income in incomes">
+                                    <li><a href="" ng-click="onSelectIncomeClick(income)">{{income.Name}}</a></li>                                                                               
+                                </ul>
+                            </li>
+                            <li class="divider"></li>                                
+                        </ul>
+                    </div>                        
+                </div>
+            </form>
         </div>
     </div>
 </div>

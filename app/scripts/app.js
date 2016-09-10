@@ -18,7 +18,7 @@ var app = angular.module('budgetplannerApp', ['ui.router'])
                 controllerAs: 'dashboard'
             })
                     .state('expense-list', {
-                        url: 'expense-list',
+                        url: '/expense-list',
                         templateUrl: 'views/expense-list-view.html',
                         controller: 'ExpenseListController',
                         controllerAs: 'expense-list'
